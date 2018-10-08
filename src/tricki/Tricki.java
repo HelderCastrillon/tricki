@@ -42,6 +42,7 @@ public class Tricki {
         else{
             marca='O';
             jugadorActual=jugador1; //cambia de turno
+
         }
         do{
             System.out.println("Digite la posición en X");
@@ -96,7 +97,7 @@ public class Tricki {
        }
         }while(ganar==false);
         
-        
+        System.out.println("Ganó el jugador "+(jugadorActual.equals(jugador1)?jugador2:jugador1)); 
     }
     
 }
