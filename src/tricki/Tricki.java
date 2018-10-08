@@ -23,7 +23,7 @@ public class Tricki {
        char marcas[][]={{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
        char marca=' ';
        boolean ganar=false;
-       
+       boolean tiroValido=false;
        String jugadorActual;
         System.out.println("#####  Vamos a Jugar tricki #####");
         System.out.println("Ingrese el primer jugador");
@@ -34,6 +34,7 @@ public class Tricki {
         do{
         System.out.println("Es tu turno de tirar :"+ jugadorActual);
         
+        
         if(jugadorActual.equals(jugador1)){
             marca='X';
             jugadorActual=jugador2; //cambia de turno
@@ -42,12 +43,22 @@ public class Tricki {
             marca='O';
             jugadorActual=jugador1; //cambia de turno
         }
-
-        System.out.println("Digite la posición en X");
-        int posX=leer.nextInt();
-        System.out.println("Digite la posición en Y");
-        int posY= leer.nextInt();
-        marcas[posX][posY]=marca;
+        do{
+            System.out.println("Digite la posición en X");
+            int posX=leer.nextInt();
+            System.out.println("Digite la posición en Y");
+            int posY= leer.nextInt();
+            tiroValido=false;
+            if( marcas[posX][posY]==' '){
+                marcas[posX][posY]=marca;
+                tiroValido=true;
+            }
+            else{
+                tiroValido=false;
+                System.out.println("La posición en el tricki no está disponible");
+            }
+        }while(tiroValido==false);
+        
         System.out.printf("[%c][%c][%c]\n",marcas[0][0],marcas[0][1],marcas[0][2]);
         System.out.printf("[%c][%c][%c]\n",marcas[1][0],marcas[1][1],marcas[1][2]);
         System.out.printf("[%c][%c][%c]\n",marcas[2][0],marcas[2][1],marcas[2][2]);
